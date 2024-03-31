@@ -1,16 +1,19 @@
 "use client";
 import React, { useMemo } from "react";
-import { useLocalstorageState } from "rooks";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 import { format } from "date-fns";
 import { Popover } from "@headlessui/react";
 
-export const PickDate: React.FC = () => {
-  const [dateSince, setDateSince] = useLocalstorageState<string | undefined>(
-    "dateSince",
-  );
+type Props = {
+  dateSince: string | null | undefined;
+  setDateSince: (d: string | null | undefined) => void;
+};
 
+export const PickDate: React.FC<Props> = ({
+  dateSince,
+  setDateSince,
+}: Props) => {
   const selected = useMemo(
     () => (dateSince ? new Date(dateSince) : undefined),
     [dateSince],
