@@ -23,7 +23,7 @@ export const TimeSince: React.FC<Props> = ({ dateSince }: Props) => {
 
   return (
     <p>
-      <span>It's been </span>
+      <span>{"It's been "}</span>
       <span>
         <strong>{dateDiff || "0 days"}</strong>
       </span>
