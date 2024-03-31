@@ -5,9 +5,7 @@ import React from "react";
 import { useLocalstorageState } from "rooks";
 import { format, formatDuration, intervalToDuration } from "date-fns";
 
-type Props = {};
-
-export const TimeSince: React.FC<Props> = ({}) => {
+export const TimeSince: React.FC = () => {
   const [dateSince] = useLocalstorageState<string>("dateSince");
 
   if (!dateSince) return <p className="text-gray-500">Please provide a date</p>;

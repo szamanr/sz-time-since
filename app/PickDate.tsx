@@ -6,9 +6,7 @@ import "react-day-picker/dist/style.css";
 import { format } from "date-fns";
 import { Popover } from "@headlessui/react";
 
-type Props = {};
-
-export const PickDate: React.FC<Props> = ({}) => {
+export const PickDate: React.FC = () => {
   const [dateSince, setDateSince] = useLocalstorageState<string | undefined>(
     "dateSince",
   );
