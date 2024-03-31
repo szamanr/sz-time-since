@@ -8,8 +8,7 @@ import { format, formatDuration, intervalToDuration } from "date-fns";
 type Props = {};
 
 export const TimeSince: React.FC<Props> = ({}) => {
-  // TODO: remove initial
-  const [dateSince] = useLocalstorageState<string>("dateSince", "2024-01-13");
+  const [dateSince] = useLocalstorageState<string>("dateSince");
 
   if (!dateSince) return <p className="text-gray-500">Please provide a date</p>;
 
@@ -25,8 +24,8 @@ export const TimeSince: React.FC<Props> = ({}) => {
   return (
     <p>
       <span>It's been </span>
-      <strong>{dateDiff}</strong>
-      <span> since {format(dateSince, "dd MMM yyyy")}</span>
+      <strong>{dateDiff || "0 days"}</strong>
+      <span> since {format(dateSince, "dd MMM yyyy")}.</span>
     </p>
   );
 };
